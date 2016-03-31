@@ -14,10 +14,8 @@ SQLite
 
 ## Development
 ### Installing Dependencies
-Be sure to have Xcode 7.2.1+ installed. The repo contains both the server and the client app in seperate directories. The following command in the root directory will get you up and running
-```
-cd app; npm i; cd ../server; npm i; npm start
-```
+Be sure to have Xcode 7.2.1+ installed. The repo contains both the server and the client app in seperate directories. Follow the instructions in each directory to get the full app up and running.
+
 ### Roadmap
 There are plenty of ways to make Qult even better! View the project roadmap [here](https://github.com/gelatinous-toboggan/gelatinous-toboggan/issues).
 
