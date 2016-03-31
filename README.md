@@ -3,12 +3,12 @@
 Quilt is social video creation on your iPhone. Invite friends to contribute to a video montage.
 
 ## Table of Contents
-1. Usage
-2. Tech Stack
-3. Development
-4. Roadmap
-5. Core Team
-6. Contributing
+1. Usage (#Usage)
+2. Tech Stack (#Tech Stack)
+3. Development (#Development)
+4. Roadmap (#Roadmap)
+5. Core Team (#Core Team)
+6. Contributing (#Contributing)
 
 ## Usage
 Users can start a video montage (what we call a 'Quilt') by recording a video within the app and selecting friends to join in. As friends as their contributions, Quilt creates a running montage of all the videos.
@@ -27,7 +27,7 @@ Be sure to have Xcode 7.2.1+ installed. The repo contains both the server and th
 cd app; npm i; cd ../server; npm i; npm start
 ```
 ### Roadmap
-There are plenty of ways to make Qult even better! View the project roadmap here.
+There are plenty of ways to make Qult even better! View the project roadmap [here](https://github.com/gelatinous-toboggan/gelatinous-toboggan/issues).
 
 ## Core Team
 Product Owner: Griffin Michl
