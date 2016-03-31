@@ -12,6 +12,7 @@ const {
   PropTypes,
   Text,
   View,
+  ActivityIndicatorIOS,
 } = React;
 
 // todo: consider factoring out view rendering into own component
@@ -21,6 +22,9 @@ class ShowQuilts extends Component {
     this.getDataSource = this.getDataSource.bind(this);
     this.onRenderRow = this.onRenderRow.bind(this);
     this.onQuiltClick = this.onQuiltClick.bind(this);
+  }
+
+  componentWillMount() {
     this.props.fetchQuilts({
       username: this.props.username,
       token: this.props.token,
@@ -51,16 +55,23 @@ class ShowQuilts extends Component {
   }
 
   render() {
+    let quiltsListView = <ListView
+      dataSource={this.getDataSource()}
+      renderRow={this.onRenderRow}
+    />;
+    
     if (this.props.quilts.get('isFetching')) {
-      return <Text>Loading Quilts...</Text>;
+      quiltsListView = <ActivityIndicatorIOS
+        animating={true}
+        style={{height: 80}}
+        size="large"
+      />;
     }
+
     return (
       <View style={viewQuilts.container}>
         <NavBar onPress={this.props.navigator.pop} />
-        <ListView
-          dataSource={this.getDataSource()}
-          renderRow={this.onRenderRow}
-        />
+        {quiltsListView}
       </View>
     );
   }
@@ -78,6 +89,7 @@ ShowQuilts.propTypes = {
 
 function mapStateToProps(state) {
   const user = state.get('user');
+  console.log(user);
   return {
     quilts: state.get('quilts'),
     username: user.get('username'),

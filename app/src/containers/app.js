@@ -17,6 +17,14 @@ import PhoneNumber from './phoneNumber';
 import Username from './username';
 import ContactsContainer from './contacts';
 import NotifContainer from '../containers/notification';
+import Blank from './blank';
+import FindFriends from './find_friends';
+import { connect } from 'react-redux';
+import { isLoggedIn } from '../actions/index';
+import ip from '../config';
+
+
+import Keychain from 'react-native-keychain';
 
 const {
   Component,
@@ -26,6 +34,7 @@ const {
 
 // todo: refactor into redux-based navigation system
 const ROUTES = {
+  blank: Blank,
   camera: ShowCamera,
   contacts: ContactsContainer,
   create: CreateQuilt,
@@ -37,11 +46,17 @@ const ROUTES = {
   username: Username,
   view: ShowQuilts,
   video: WatchVideo,
+  friends: FriendsContainer,
+  findFriends: FindFriends,
   selectFriends: SelectFriendsContainer,
   notification: NotifContainer,
 };
 
 class App extends Component {
+  componentWillMount() {
+    this.props.isLoggedIn()
+  }
+
   configScene() {
     return Navigator.SceneConfigs.FloatFromRight;
   }
@@ -55,7 +70,7 @@ class App extends Component {
     return (
       <View style={{ flex: 1 }}>
         <Navigator
-          initialRoute={{ name: 'loginOrSignup' }}
+          initialRoute={{ name: 'blank' }}
           renderScene={this.renderScene}
           configureScene={this.configScene}
         />
@@ -64,4 +79,12 @@ class App extends Component {
   }
 }
 
-export default App;
+function mapDispatchToProps(dispatch) {
+  return {
+    isLoggedIn: () => {
+      return dispatch(isLoggedIn());
+    }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(App);

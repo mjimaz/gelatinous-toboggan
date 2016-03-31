@@ -54,7 +54,7 @@ const crossReference = (emails, phoneNumbers) =>
       ],
     },
   })
-  .then(user => user ? user.get('id') : null)
+  .then(user => user ? user : null)
   .catch(error => console.error(`Error cross referencing user: ${error}`));
 
 // status 0 = pending me
@@ -65,7 +65,7 @@ function mapQuilts(userQuilts) {
     id: userQuilt.get('id'),
     theme: userQuilt.get('theme'),
     // status: userQuilt.get('UserQuilt').get('status') + userQuilt.get('status'),
-    status: userQuilt.get('status'),
+    status: userQuilt.get('UserQuilt').get('status'),
   })).reverse();
 }
 
@@ -190,8 +190,18 @@ const getUsersNotifs = (userId) => (
   db.Notification.findAll({ where: { userId: userId } })
 )
 
+const getFriends = (id) =>
+  db.User.find({
+    where: { id },
+    include: [
+      { model: db.User, as: 'Friend'},
+    ],
+  })
+
+
 export default {
   addFriends,
+  getFriends,
   createUser,
   crossReference,
   getAllUsers,
