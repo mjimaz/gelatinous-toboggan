@@ -22,9 +22,9 @@ SQLite
 
 ## Development
 ### Installing Dependencies
-Be sure to have Xcode 7.2.1+ installed
+Be sure to have Xcode 7.2.1+ installed. The repo contains both the server and the client app in seperate directories. The following command in the root directory will get you up and running
 ```
-npm install
+cd app; npm i; cd ../server; npm i; npm start
 ```
 ### Roadmap
 There are plenty of ways to make Qult even better! View the project roadmap here.
