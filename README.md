@@ -4,7 +4,7 @@ Quilt is social video creation on your iPhone. Invite friends to contribute to a
 
 ## Table of Contents
 1. [Usage](#Usage)
-2. [Tech Stack]#Tech Stack)
+2. [Tech Stack](#Tech Stack)
 3. [Development](#Development)
 4. [Roadmap](#Roadmap)
 5. [Core Team](#Core Team)
