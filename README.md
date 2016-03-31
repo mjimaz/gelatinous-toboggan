@@ -2,14 +2,6 @@
 
 Quilt is social video creation on your iPhone. Invite friends to contribute to a video montage.
 
-## Table of Contents
-1. [Usage](#Usage)
-2. [Tech Stack](#Tech Stack)
-3. [Development](#Development)
-4. [Roadmap](#Roadmap)
-5. [Core Team](#Core Team)
-6. [Contributing](#Contributing)
-
 ## Usage
 Users can start a video montage (what we call a 'Quilt') by recording a video within the app and selecting friends to join in. As friends as their contributions, Quilt creates a running montage of all the videos. For a visual map of UX, take a look at the storyboard diagram.
 
